@@ -10,7 +10,7 @@ import javax.swing.JComponent;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Floor extends JComponent implements Runnable
+public class thing extends JComponent implements Runnable
 {
     // instance variables - replace the example below with your own
     private int x,y,w,h;
@@ -18,12 +18,12 @@ public class Floor extends JComponent implements Runnable
     /**
      * Constructor for objects of class Floor
      */
-    public Floor()
+    public thing()
     {
-        x = 50;
+        x = 0;
         y = 0;
-        w = 250;
-        h = 200;
+        w = 50;
+        h = 50;
     }
 
     @Override
@@ -72,10 +72,10 @@ public class Floor extends JComponent implements Runnable
         int running  = 0;
         while(true){
 
-            if(running % 2 == 0)
-                x +=20;
-            else
-                x -= 20;
+            if(running % 2 == 0){
+                x ++;
+                y++;
+            }
             running ++;
             //repaint();
         }
