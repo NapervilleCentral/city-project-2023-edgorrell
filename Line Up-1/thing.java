@@ -4,81 +4,45 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
-/**
- * Write a description of class Floor here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class thing extends JComponent implements Runnable
-{
-    // instance variables - replace the example below with your own
+public class thing extends JComponent implements Runnable{
+    private Color color;
     private int x,y,w,h;
+    private int xplus = 1, yplus = 1;
 
-    /**
-     * Constructor for objects of class Floor
-     */
-    public thing()
-    {
+    public thing(){
         x = 0;
         y = 0;
         w = 50;
         h = 50;
+        color = new Color(100,100,100);
     }
-
-    @Override
-    public void paintComponent(Graphics g)
-    {
-        Graphics2D g2 = (Graphics2D) g;
-
-        // invoke the draw method 
-        // ...
-        draw(g2);
-
-    }
-    /**
-     * Animate the cityscape by updating the objects such that they appear to be animated when
-     *      they are next drawn.
-     *
-     */
-    public void setX(int running)
-    {
-        // update the objects in the cityscape so they are animated
-        // ...
-        //height = 100 +generator.nextInt(45);
-
-        if (running % 2 == 0)
-            x +=20;
-        else
-            x -= 20;
-
-        
-        // request that the Java Runtime repaints this component by invoking its paintComponent method
-        //  do not explicitly invoke the paintComponent method
+    
+    public void nextFrame(){
         repaint();
     }
-
-    //-----------------------------------------------------------------
-    //  Draws this figure relative to baseX, baseY, and height.
-    //-----------------------------------------------------------------
-    public void draw (Graphics2D page)
-    {
-        page.setColor(Color.black);
-        page.fillRect(x, y, w, h);
+    @Override
+    public void paintComponent(Graphics g){
+        Graphics2D g2 = (Graphics2D) g;
+        draw(g2);
     }
-
-    public void run()
-    {
-        int running  = 0;
+    public void draw (Graphics2D page){ // actually draw stuff here
+        page.setColor(color);
+        page.fillOval(x,y,w,h);
+    }
+    
+    public void run(){
+        int frame = 0;
         while(true){
-
-            if(running % 2 == 0){
-                x ++;
-                y++;
+            if(frame % 2 == 0){
+                x += xplus;
+                y += yplus;
             }
-            running ++;
-            //repaint();
+            if(x < 0 || x > 350){ xplus *= -1; }
+            if(y < 0 || y > 250){ yplus *= -1; }
+            frame++;
+            try{
+                Thread.sleep(17);
+            } catch (Exception e){}
         }
-
     }
 }

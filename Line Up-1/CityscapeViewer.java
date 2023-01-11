@@ -7,17 +7,8 @@ import java.awt.*;
  * @author gcschmit
  * @version 18 July 2014
  */
-public class CityscapeViewer
-{
-    /**
-     * main method for the program which creates and configures the frame for the program
-     * 
-     * @param args  not used
-     *
-     */
-    public static void main(String[] args) throws InterruptedException
-    {
-        // create and configure the frame (window) for the program
+public class CityscapeViewer{
+    public static void main(String[] args) throws InterruptedException{
         JFrame frame = new JFrame();
 
         frame.setSize(400 /* x */, 300 /* y */);
@@ -28,19 +19,12 @@ public class CityscapeViewer
         int h1 = 100 + (int)(Math.random()*45);
         int h2 = 100 + (int)(Math.random()*45);
 
-        // a frame contains a single component; create the Cityscape component and add it to the frame
 
         LineUp row = new LineUp();
-        //frame.add(component);
         frame.add(row);
 
-        // make the frame visible which will result in the paintComponent method being invoked on the
-        //  component.
         frame.setVisible(true);
-
-        // animate the cityscape
-        while(true)
-        {
+        while(true){
             row.nextFrame();
             Thread.sleep(17); // approx 30fps
         }

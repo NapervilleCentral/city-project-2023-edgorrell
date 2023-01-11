@@ -11,8 +11,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
-public class StickFigure extends JComponent implements Runnable
-{
+public class StickFigure extends JComponent implements Runnable{
     private int baseX;     // center of figure
     private int baseY;     // floor (bottom of feet)
     private Color color;   // color of stick figure
@@ -29,18 +28,11 @@ public class StickFigure extends JComponent implements Runnable
         color = shade;
         height = size;
     }
-
-    /**
-     * setHeight method
-     */
-    public void setHeight(int size){
-        //for (int i = 0; i<10000;i++)
-        //{
-        height = size;
-        System.out.println(color);
-        //}
+    
+    public void nextFrame(){
+        height = 100 +generator.nextInt(45);
+        repaint();
     }
-
     /**
      * This method is invoked by the Java Run-Time whenever the component needs to be redrawn.
      * It does not need to be invoked explicitly.
@@ -49,37 +41,11 @@ public class StickFigure extends JComponent implements Runnable
      *
      */
     @Override
-    public void paintComponent(Graphics g)
-    {
+    public void paintComponent(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
-
-        // invoke the draw method
-        // ...
         draw(g2);
-
     }
-    /**
-     * Animate the cityscape by updating the objects such that they appear to be animated when
-     *      they are next drawn.
-     *
-     */
-    public void nextFrame()
-    {
-        // update the objects in the cityscape so they are animated
-        // ...
-        height = 100 +generator.nextInt(45);
-
-
-        // request that the Java Runtime repaints this component by invoking its paintComponent method
-        //  do not explicitly invoke the paintComponent method
-        repaint();
-    }
-
-    //-----------------------------------------------------------------
-    //  Draws this figure relative to baseX, baseY, and height.
-    //-----------------------------------------------------------------
-    public void draw (Graphics2D page)
-    {
+    public void draw(Graphics2D page){
         int top = baseY - height;  // top of head
         //y needs to move, not height.
 
@@ -92,18 +58,10 @@ public class StickFigure extends JComponent implements Runnable
 
         page.drawLine (baseX, baseY-30, baseX-15, baseY);  // legs
         page.drawLine (baseX, baseY-30, baseX+15, baseY);
-
+        
         page.drawLine (baseX, baseY-70, baseX-25, baseY-70);  // arms
         page.drawLine (baseX, baseY-70, baseX+20, baseY-85);
-
     }
 
-    public void run()
-    {
-        while(true){
-            int newHeight = 100 + generator.nextInt(45);
-            height = newHeight;
-        }
-    }
-
+    public void run(){}
 }
