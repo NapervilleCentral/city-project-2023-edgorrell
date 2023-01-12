@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class Water here.
+ * Write a description of class Lab here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Water
+public class Lab
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Water
+     * Constructor for objects of class Lab
      */
-    public Water()
+    public Lab()
     {
         // initialise instance variables
         x = 0;

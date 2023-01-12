@@ -37,8 +37,6 @@ public class thing extends JComponent implements Runnable{
                 x += xplus;
                 y += yplus;
             }
-            if(x < 0 || x > 350){ xplus *= -1; }
-            if(y < 0 || y > 250){ yplus *= -1; }
             frame++;
             try{
                 Thread.sleep(17);

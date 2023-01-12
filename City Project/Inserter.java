@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class Sky here.
+ * Write a description of class Inserter here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Sky
+public class Inserter
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Sky
+     * Constructor for objects of class Inserter
      */
-    public Sky()
+    public Inserter()
     {
         // initialise instance variables
         x = 0;
