@@ -7,7 +7,6 @@ import javax.swing.JComponent;
 public class thing extends JComponent implements Runnable{
     private Color color;
     private int x,y,w,h;
-    private int xplus = 1, yplus = 1;
 
     public thing(){
         x = 0;
@@ -31,16 +30,12 @@ public class thing extends JComponent implements Runnable{
     }
     
     public void run(){
-        int frame = 0;
         while(true){
-            if(frame % 2 == 0){
-                x += xplus;
-                y += yplus;
-            }
-            frame++;
+            x++;
+            y++;
             try{
-                Thread.sleep(17);
-            } catch (Exception e){}
+            Thread.sleep(17);
+            } catch(Exception e){}
         }
     }
 }

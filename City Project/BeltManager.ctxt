@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.target=BeltManager
 comment1.params=
-comment1.target=void\ nextFrame()
-comment2.params=g
-comment2.target=void\ paintComponent(java.awt.Graphics)
-comment3.params=frame
-comment3.target=void\ draw(java.awt.Graphics2D)
-comment4.params=
-comment4.target=void\ run()
-numComments=5
+comment1.target=BeltManager()
+comment2.params=
+comment2.target=void\ nextFrame()
+comment3.params=g
+comment3.target=void\ paintComponent(java.awt.Graphics)
+comment4.params=frame
+comment4.target=void\ draw(java.awt.Graphics2D)
+comment5.params=
+comment5.target=void\ run()
+numComments=6

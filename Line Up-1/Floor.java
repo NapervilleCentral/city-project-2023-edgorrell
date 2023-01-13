@@ -76,7 +76,7 @@ public class Floor extends JComponent implements Runnable
                 x +=20;
             else
                 x -= 20;
-            running ++;
+            running++;
             //repaint();
         }
 

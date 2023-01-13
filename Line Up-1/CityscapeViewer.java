@@ -16,9 +16,6 @@ public class CityscapeViewer{
         frame.setBackground(Color.red);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        int h1 = 100 + (int)(Math.random()*45);
-        int h2 = 100 + (int)(Math.random()*45);
-
 
         LineUp row = new LineUp();
         frame.add(row);

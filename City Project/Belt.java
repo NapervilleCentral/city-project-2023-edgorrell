@@ -10,6 +10,7 @@ public class Belt extends JComponent implements Runnable{
     public char dir;
     public boolean end;
     
+    public Belt(){} // delete later, just stops errors
     public Belt(int x, int y, char dir, boolean end){
         this.x = x;
         this.y = y;

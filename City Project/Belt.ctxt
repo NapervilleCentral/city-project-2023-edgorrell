@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=Belt
-comment1.params=x\ y\ dir\ end
-comment1.target=Belt(int,\ int,\ char,\ boolean)
-comment2.params=
-comment2.target=void\ nextFrame()
-comment3.params=g
-comment3.target=void\ paintComponent(java.awt.Graphics)
-comment4.params=frame
-comment4.target=void\ draw(java.awt.Graphics2D)
-comment5.params=
-comment5.target=void\ run()
-numComments=6
+comment1.params=
+comment1.target=Belt()
+comment2.params=x\ y\ dir\ end
+comment2.target=Belt(int,\ int,\ char,\ boolean)
+comment3.params=
+comment3.target=void\ nextFrame()
+comment4.params=g
+comment4.target=void\ paintComponent(java.awt.Graphics)
+comment5.params=frame
+comment5.target=void\ draw(java.awt.Graphics2D)
+comment6.params=
+comment6.target=void\ run()
+numComments=7

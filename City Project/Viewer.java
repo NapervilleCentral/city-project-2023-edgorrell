@@ -1,4 +1,4 @@
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.awt.*;
 
 public class Viewer{
@@ -7,7 +7,7 @@ public class Viewer{
 
         frame.setSize(Factory.APPLET_WIDTH, Factory.APPLET_HEIGHT);
         frame.setTitle("Factorio");
-        frame.setIconImage()
+        //frame.setIconImage();
         frame.setBackground(Color.black);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
