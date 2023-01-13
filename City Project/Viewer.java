@@ -7,7 +7,8 @@ public class Viewer{
 
         frame.setSize(Factory.APPLET_WIDTH, Factory.APPLET_HEIGHT);
         frame.setTitle("Factorio");
-        frame.setBackground(Color.red);
+        frame.setIconImage()
+        frame.setBackground(Color.black);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
