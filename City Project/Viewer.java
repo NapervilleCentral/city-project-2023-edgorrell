@@ -5,19 +5,18 @@ public class Viewer{
     public static void main(String[] args) throws InterruptedException{
         JFrame frame = new JFrame();
 
-        frame.setSize(Factorio.APPLET_WIDTH, Factorio.APPLET_HEIGHT);
+        frame.setSize(Factory.APPLET_WIDTH, Factory.APPLET_HEIGHT);
         frame.setTitle("Factorio");
         frame.setBackground(Color.red);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Factorio city = new Factorio();
-        frame.add(city);
+        Factory factory = new Factory();
+        frame.add(factory);
         frame.setVisible(true);
         
         while(true){
-            //city.nextFrame();
-            System.out.println(frame.getWidth() + "," + frame.getHeight());
+            factory.nextFrame();
             Thread.sleep(17); // approx 30fps
         }
     }

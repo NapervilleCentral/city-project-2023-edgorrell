@@ -1,33 +1,23 @@
+import java.awt.*;
+import java.util.*;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JComponent;
 
-/**
- * Write a description of class Bot here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Bot
-{
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Bot
-     */
-    public Bot()
-    {
-        // initialise instance variables
-        x = 0;
+public class Bot extends JComponent implements Runnable{
+    
+    public void nextFrame(){
+        repaint();
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    @Override
+    public void paintComponent(Graphics g){
+        Graphics2D g2 = (Graphics2D) g;
+        draw(g2);
+    }
+    public void draw (Graphics2D frame){ // actually draw stuff here
+        
+    }
+    public void run(){
+        
     }
 }
