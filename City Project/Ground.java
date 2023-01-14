@@ -1,13 +1,16 @@
+import java.io.*;
 import java.awt.*;
 import java.util.*;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.JComponent;
+import javax.swing.*;
+import javax.imageio.*;
+import java.awt.image.*;
 
 public class Ground extends JComponent implements Runnable{
-    Image sprite;
+    BufferedImage sprite;
     public Ground(){
-        //sprite = file thing
+        try{
+            sprite = ImageIO.read(new File("sprites/concrete/refined-concrete.png"));
+        } catch(Exception e){}
     }
     public void nextFrame(){
         repaint();
@@ -18,7 +21,8 @@ public class Ground extends JComponent implements Runnable{
         draw(g2);
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
-        
+        frame.drawImage(this.sprite,0,0,null);
+        frame.drawImage(this.sprite,0,256,null);
     }
     public void run(){}
 }

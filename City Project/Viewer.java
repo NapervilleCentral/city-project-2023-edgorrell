@@ -1,13 +1,17 @@
-import javax.swing.*;
+import java.io.*;
 import java.awt.*;
+import java.util.*;
+import javax.swing.*;
+import javax.imageio.*;
+import java.awt.image.*;
 
 public class Viewer{
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException, IOException{
         JFrame frame = new JFrame();
-
+        
         frame.setSize(Factory.APPLET_WIDTH, Factory.APPLET_HEIGHT);
         frame.setTitle("Factorio");
-        //frame.setIconImage();
+        frame.setIconImage(ImageIO.read(new File("sprites/icon.png")));
         frame.setBackground(Color.black);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
