@@ -6,11 +6,10 @@ import javax.imageio.*;
 import java.awt.image.*;
 
 public class Ground extends JComponent implements Runnable{
-    BufferedImage sprite;
-    public Ground(){
-        try{
-            sprite = ImageIO.read(new File("sprites/concrete/refined-concrete.png"));
-        } catch(Exception e){}
+    Image sprite;
+    
+    public Ground() throws IOException{
+        sprite = ImageIO.read(new File("sprites/concrete/refined-concrete.png"));
     }
     public void nextFrame(){
         repaint();

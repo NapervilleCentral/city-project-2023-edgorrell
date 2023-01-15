@@ -6,12 +6,13 @@ import javax.swing.JComponent;
 
 public class Belt extends JComponent implements Runnable{
     public Image image;
-    public int x, y;
+    public int x, y, tick;
     public char dir;
     public boolean end;
     
     public Belt(){} // delete later, just stops errors
     public Belt(int x, int y, char dir, boolean end){
+        this.tick = 0;
         this.x = x;
         this.y = y;
         this.dir = dir;
@@ -29,6 +30,9 @@ public class Belt extends JComponent implements Runnable{
         
     }
     public void run(){
-        
+        while(true){
+            tick++;
+            tick %= 16;
+        }
     }
 }

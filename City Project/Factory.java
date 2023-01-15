@@ -6,10 +6,10 @@ import javax.imageio.*;
 import java.awt.image.*;
 
 public class Factory extends JComponent{
-    public static final int APPLET_WIDTH = 512;
-    public static final int APPLET_HEIGHT = 384;
+    public static final int APPLET_WIDTH = 512; // 512
+    public static final int APPLET_HEIGHT = 384; // 384
     
-    private Thread t1, t2, t3, t4, t5, t6, t7;
+    private Thread t1, t2, t3, t4, t5, t6, t7, t8;
     
     private Ground ground;
     private Lab lab;
@@ -19,7 +19,7 @@ public class Factory extends JComponent{
     private Biter biter;
     private Bot bot;
     
-    public Factory(){
+    public Factory() throws IOException{
         ground = new Ground();
         lab = new Lab();
         beltManager = new BeltManager();
