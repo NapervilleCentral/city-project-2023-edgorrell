@@ -8,6 +8,7 @@ import java.awt.image.*;
 public class BeltManager extends JComponent implements Runnable{
     ArrayList<ArrayList<Belt>> belts = new ArrayList<ArrayList<Belt>>();
     ArrayList<Belt> belt1, belt2, belt3;
+    public static int tick = 0;
 
     public BeltManager() throws IOException{
         belt1 = new ArrayList<Belt>();
@@ -37,6 +38,12 @@ public class BeltManager extends JComponent implements Runnable{
         }
     }
     public void run(){
-        
+        while(true){
+            this.tick++;
+            this.tick %= 16;
+            try{
+                Thread.sleep(34);
+            } catch(Exception e){}
+        }
     }
 }
