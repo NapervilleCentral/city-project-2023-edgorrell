@@ -14,10 +14,10 @@ public class Lab extends JComponent implements Runnable{
     Image sprite;
     int x, y, sx, sy;
     
-    public Lab() throws IOException{
+    public Lab(int x, int y) throws IOException{
         this.sprite = ImageIO.read(new File("sprites/lab/lab.png"));
-        this.x = 195;
-        this.y = 100;
+        this.x = x;
+        this.y = y;
     }
     public void nextFrame(){
         repaint();
