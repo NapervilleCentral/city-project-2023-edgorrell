@@ -10,13 +10,11 @@ import java.awt.image.*;
 // buffer: 30 between 
 public class Belt extends JComponent implements Runnable{
     public Image sprite;
-    public int x, y, tick;
-    public char dir;
+    public int x, y;
     public boolean end;
     
     public Belt(int x, int y, boolean end) throws IOException{
         this.sprite = ImageIO.read(new File("sprites/transport-belt/transport-belt.png"));
-        this.tick = 0;
         this.x = x;
         this.y = y;
         this.dir = dir;
@@ -34,16 +32,8 @@ public class Belt extends JComponent implements Runnable{
         if(end){
             
         } else {
-            frame.drawImage(this.sprite,x,y,x+33,x+34,16+63*this.tick,143,49+63*this.tick,175,null);
+            frame.drawImage(this.sprite,x,y,x+33,x+34,16+63*BeltManager.tick,143,49+63*BeltManager.tick,175,null);
         }
     }
-    public void run(){
-        while(true){
-            this.tick++;
-            this.tick %= 16;
-            try{
-                Thread.sleep(34);
-            } catch(Exception e){}
-        }
-    }
+    public void run(){} // idk if need to be runnable anymore
 }
