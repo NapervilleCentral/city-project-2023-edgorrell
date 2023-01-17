@@ -14,7 +14,7 @@ public class Viewer{
         frame.setTitle("Factorio");
         frame.setIconImage(ImageIO.read(new File("sprites/icon.png")));
         frame.setBackground(Color.black);
-        //frame.setResizable(false);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Factory factory = new Factory();
@@ -24,7 +24,6 @@ public class Viewer{
         while(true){
             factory.nextFrame();
             Thread.sleep(17); // approx 30fps
-            System.out.println(frame.getWidth() + "," + frame.getHeight());
         }
     }
 }

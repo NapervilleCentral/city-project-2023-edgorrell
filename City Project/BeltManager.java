@@ -6,21 +6,20 @@ import javax.imageio.*;
 import java.awt.image.*;
 
 public class BeltManager extends JComponent implements Runnable{
-    ArrayList<ArrayList<Belt>> belts = new ArrayList<ArrayList<Belt>>();
-    ArrayList<Belt> belt1, belt2, belt3;
+    ArrayList<Belt> belts;
     public static int tick = 0;
 
     public BeltManager() throws IOException{
-        belt1 = new ArrayList<Belt>();
-        belt2 = new ArrayList<Belt>();
-        belt3 = new ArrayList<Belt>();
-        belts.add(belt1);
-        belts.add(belt2);
-        belts.add(belt3);
-        belt1.add(new Belt(0,0,false));
-        //belt2.add(new Belt());
-        //belt3.add(new Belt());
+        belts = new ArrayList<Belt>();
         
+        for(int xpos : new int[] {201,238,275}){
+            belts.add(new Belt(xpos,235,true));
+            belts.add(new Belt(xpos,242,false));
+            belts.add(new Belt(xpos,275,false));
+            belts.add(new Belt(xpos,308,false));
+            belts.add(new Belt(xpos,341,false));
+            belts.add(new Belt(xpos,374,false));
+        }
     }
     public void nextFrame(){
         repaint();
@@ -31,16 +30,14 @@ public class BeltManager extends JComponent implements Runnable{
         draw(g2);
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
-        for(ArrayList<Belt> belt : belts){
-            for(Belt segment : belt){
-                segment.draw(frame);
-            }
+        for(Belt belt : belts){
+            belt.draw(frame);
         }
+        this.tick++;
+        this.tick %= 16;
     }
     public void run(){
         while(true){
-            this.tick++;
-            this.tick %= 16;
             try{
                 Thread.sleep(34);
             } catch(Exception e){}
