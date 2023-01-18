@@ -9,7 +9,7 @@ public class Ground extends JComponent implements Runnable{
     Image sprite;
     
     public Ground() throws IOException{
-        sprite = ImageIO.read(new File("sprites/concrete/refined-concrete.png"));
+        sprite = ImageIO.read(new File("sprites/concrete.png"));
     }
     public void nextFrame(){
         repaint();

@@ -1,8 +1,9 @@
+import java.io.*;
 import java.awt.*;
 import java.util.*;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.JComponent;
+import javax.swing.*;
+import javax.imageio.*;
+import java.awt.image.*;
 
 public class ScienceManager extends JComponent implements Runnable{
     ArrayList<SciencePack> pack1 = new ArrayList<SciencePack>();

@@ -1,11 +1,12 @@
+import java.io.*;
 import java.awt.*;
 import java.util.*;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.JComponent;
+import javax.swing.*;
+import javax.imageio.*;
+import java.awt.image.*;
 
 public class SciencePack extends JComponent implements Runnable{
-    
+    //ArrayList<SciencePack> science
     public void nextFrame(){
         repaint();
     }
