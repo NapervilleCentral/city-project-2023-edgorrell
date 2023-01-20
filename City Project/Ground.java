@@ -15,7 +15,7 @@ public class Ground extends JComponent implements Runnable {
                 this.spriteSheet = ImageIO.read(new File("sprites.concrete.png"));            
             } catch(Exception e){}
         }
-        sprite = this.spriteSheet.getSubimage(0,0,528,this.spriteSheet.getHeight());
+        //sprite = this.spriteSheet.getSubimage(0,0,528,this.spriteSheet.getHeight());
     }
     public void nextFrame(){
         repaint();

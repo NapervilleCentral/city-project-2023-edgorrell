@@ -53,10 +53,10 @@ public class CarBecauseItsACity extends JComponent implements Runnable{
             this.x = 600;
         }
         this.x += 2;
-        frame.drawImage(this.car,0,0,null);
+        frame.drawImage(this.car,x,y,null);
         try{
-            frame.drawImage(this.paintedMask);
-        }
+            frame.drawImage(this.coloredMask,x,y,null);
+        } catch(Exception e){}
     }
     public void run(){
         try{
