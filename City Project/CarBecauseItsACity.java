@@ -6,15 +6,13 @@ import javax.imageio.*;
 import java.awt.image.*;
 
 public class CarBecauseItsACity extends JComponent implements Runnable{
-    BufferedImage car, mask, coloredMask;
-    Color color;
-    int x, y;
+    BufferedImage car, mask, paintedMask;
+    int x, y = 20;
     boolean isDriving;
-    public CarBecauseItsACity(){
-        try {
-            this.car = ImageIO.read(new File("sprites/car/car.png"));
-            this.mask = ImageIO.read(new File("sprite/car/car-mask.png"));
-        } catch(Exception e){}
+    public CarBecauseItsACity() throws IOException{
+        this.car = ImageIO.read(new File("sprites/car/car.png"));
+        this.mask = ImageIO.read(new File("sprites/car/car-mask.png"));
+        this.paintedMask = paintMask();
         this.x = 600;
         this.y = 20;
     }
@@ -27,12 +25,28 @@ public class CarBecauseItsACity extends JComponent implements Runnable{
                                 (int)(128*Math.random())+nums.get(2));
         return color;
     }
-    public void paintMask(){
-        for(int x = 0; x < 0; x++){
-            for(int y = 0; y < 0; y++){
-                
+    public BufferedImage paintMask(){
+        Color color = newColor();
+        Color temp;
+        int num;
+        BufferedImage img = new BufferedImage(this.mask.getWidth(),this.mask.getHeight(),this.mask.getType());
+        
+        for(int x = 0; x < this.mask.getWidth(); x++){
+            for(int y = 0; y < this.mask.getHeight(); y++){
+                if(new Color(mask.getRGB(x,y),true).equals(new Color(mask.getRGB(0,0),true))){
+                    continue;
+                } else {
+                    num = new Color(mask.getRGB(x,y)).getRed();
+                    temp = new Color(
+                        (int)((num/255.0)*color.getRed())+32,
+                        (int)((num/255.0)*color.getGreen())+32,
+                        (int)((num/255.0)*color.getBlue())+32
+                    );
+                    img.setRGB(x,y,temp.getRGB());
+                }
             }
         }
+        return img;
     }
      public void nextFrame(){
         repaint();
@@ -43,25 +57,22 @@ public class CarBecauseItsACity extends JComponent implements Runnable{
         draw(g2);
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
-        if(!isDriving){return;}
-        if(isDriving && this.x == 600){
-            this.color = newColor();
-            paintMask();
-        }
-        if(isDriving && this.x < -90){
-            this.isDriving = false;
-            this.x = 600;
-        }
-        this.x += 2;
-        frame.drawImage(this.car,x,y,null);
-        try{
-            frame.drawImage(this.coloredMask,x,y,null);
-        } catch(Exception e){}
+        frame.drawImage(this.car,this.x,this.y,null);
+        frame.drawImage(this.paintedMask,this.x,this.y,null);
     }
     public void run(){
-        try{
-            Thread.sleep((long)(3000*Math.random()+3000));
-        } catch(Exception e){}
-        if(!isDriving){this.isDriving = true;}
+        while(true){
+            this.x -= 3;
+            if(this.x < -90){
+                this.paintedMask = paintMask();
+                this.x = 600;
+                try{
+                    Thread.sleep((int)(6000*Math.random()));
+                } catch(Exception e){}
+            }
+            try{
+                Thread.sleep(17);
+            } catch(Exception e){}
+        }
     }
 }
