@@ -6,13 +6,14 @@ import javax.imageio.*;
 import java.awt.image.*;
 
 public class CarBecauseItsACity extends JComponent implements Runnable{
-    BufferedImage car, mask, paintedMask;
+    BufferedImage car, mask, paintedMask, shadow;
     int x, y = 20;
     boolean isDriving;
     public CarBecauseItsACity() throws IOException{
         this.car = ImageIO.read(new File("sprites/car/car.png"));
         this.mask = ImageIO.read(new File("sprites/car/car-mask.png"));
         this.paintedMask = paintMask();
+        this.shadow = ImageIO.read(new File("sprites/car/car-shadow.png"));
         this.x = 600;
         this.y = 20;
     }
@@ -57,6 +58,7 @@ public class CarBecauseItsACity extends JComponent implements Runnable{
         draw(g2);
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
+        frame.drawImage(this.shadow,this.x+2,this.y+14,null);
         frame.drawImage(this.car,this.x,this.y,null);
         frame.drawImage(this.paintedMask,this.x,this.y,null);
     }
