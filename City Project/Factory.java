@@ -20,7 +20,7 @@ public class Factory extends JComponent{
     public Factory() throws IOException{
         ground = new Ground();
         carBecauseItsAFactory = new CarBecauseItsACity();
-        lab = new Lab(207,120);
+        lab = new Lab();
         beltManager = new BeltManager();
         scienceManager = new ScienceManager();
         inserterManager = new InserterManager();

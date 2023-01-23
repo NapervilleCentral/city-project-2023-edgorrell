@@ -16,6 +16,14 @@ public class CarBecauseItsACity extends JComponent implements Runnable{
         this.shadow = ImageIO.read(new File("sprites/car/car-shadow.png"));
         this.x = 600;
         this.y = 20;
+        
+        for(int x = 0; x < this.shadow.getWidth(); x++){
+            for(int y = 0; y < this.shadow.getHeight(); y++){
+                if(new Color(shadow.getRGB(x,y),true).equals(new Color(0,0,0))){
+                    this.shadow.setRGB(x,y,new Color(0,0,0,127).getRGB());
+                }
+            }
+        }
     }
     public Color newColor(){
         ArrayList<Integer> nums = new ArrayList<Integer>();
@@ -58,7 +66,7 @@ public class CarBecauseItsACity extends JComponent implements Runnable{
         draw(g2);
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
-        frame.drawImage(this.shadow,this.x+2,this.y+14,null);
+        frame.drawImage(this.shadow,this.x+2,this.y+11,null);
         frame.drawImage(this.car,this.x,this.y,null);
         frame.drawImage(this.paintedMask,this.x,this.y,null);
     }

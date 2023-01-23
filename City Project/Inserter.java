@@ -1,11 +1,19 @@
+import java.io.*;
 import java.awt.*;
 import java.util.*;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.JComponent;
+import javax.swing.*;
+import javax.imageio.*;
+import java.awt.image.*;
 
 public class Inserter extends JComponent implements Runnable{
+    BufferedImage sprite, arm, item;
+    int x,y,angle;
+    boolean isHolding, turnDirection;
     
+    public Inserter(){}
+    public Inserter(int x, int y){
+    
+    }
     public void nextFrame(){
         repaint();
     }
@@ -18,6 +26,11 @@ public class Inserter extends JComponent implements Runnable{
         
     }
     public void run(){
-        
+        while(true){
+            if(this.angle <= 180 && isHolding){
+                this.angle++;
+            }
+            if(this.angle == 180){}
+        }
     }
 }

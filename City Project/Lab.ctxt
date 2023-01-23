@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Lab
-comment1.params=x\ y
-comment1.target=Lab(int,\ int)
+comment1.params=
+comment1.target=Lab()
 comment2.params=
 comment2.target=void\ nextFrame()
 comment3.params=g
