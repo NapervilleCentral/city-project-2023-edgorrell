@@ -14,6 +14,11 @@ public class Inserter extends JComponent implements Runnable{
     public Inserter(int x, int y){
     
     }
+    public BufferedImage rotate(BufferedImage image, double theta){
+        BufferedImage result = new BufferedImage(100,100, image.getType());
+        
+        return result;
+    }
     public void nextFrame(){
         repaint();
     }
