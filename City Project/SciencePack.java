@@ -7,11 +7,15 @@ import java.awt.image.*;
 
 public class SciencePack extends JComponent implements Runnable{
     BufferedImage sprite;
-    int x, y, id, index;
+    int x, y, id, offset;
+    boolean isMoving;
     // id is 1-6 not 0-5
     
-    public SciencePack(int id) throws IOException{
+    public SciencePack(int x, int y, int id) throws IOException{
         this.sprite = ImageIO.read(new File("sprites/science-packs/id-" + id + ".png"));
+        this.x = x;
+        this.y = y;
+        this.offset = 0;
     }
     public void nextFrame(){
         repaint();
@@ -22,13 +26,12 @@ public class SciencePack extends JComponent implements Runnable{
         draw(g2);
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
-        frame.drawImage(this.sprite,x,y,null);
+        for(int i = 0; i < 22; i++){
+            frame.drawImage(this.sprite,x,(12*i)+offset+y+16,null);
+        }
     }
     public void run(){
-        index = ScienceManager.packs.get(id).indexOf(this);
-    }
-    public boolean equals(Object obj){
-        SciencePack pack = (SciencePack) obj;
-        return (this.x == pack.x && this.y == pack.y && this.id == pack.id);
+        offset--;
+        offset %= 18;
     }
 }

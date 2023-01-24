@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=SciencePack
-comment1.params=id
-comment1.target=SciencePack(int)
+comment1.params=x\ y\ id
+comment1.target=SciencePack(int,\ int,\ int)
 comment2.params=
 comment2.target=void\ nextFrame()
 comment3.params=g
@@ -10,6 +10,4 @@ comment4.params=frame
 comment4.target=void\ draw(java.awt.Graphics2D)
 comment5.params=
 comment5.target=void\ run()
-comment6.params=obj
-comment6.target=boolean\ equals(java.lang.Object)
-numComments=7
+numComments=6
