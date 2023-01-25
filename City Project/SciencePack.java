@@ -27,7 +27,7 @@ public class SciencePack extends JComponent implements Runnable{
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
         for(int i = 0; i < 22; i++){
-            frame.drawImage(this.sprite,x,(12*i)+offset+y+16,null);
+            frame.drawImage(this.sprite,x,(12*i)+offset+y,null);
         }
     }
     public void run(){

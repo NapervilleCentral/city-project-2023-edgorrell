@@ -8,7 +8,7 @@ import java.awt.image.*;
 public class Inserter extends JComponent implements Runnable{
     BufferedImage sprite, arm, item;
     int x,y,angle;
-    boolean isHolding, turnDirection;
+    boolean turnDirection;
     
     public Inserter(){}
     public Inserter(int x, int y){
@@ -32,10 +32,9 @@ public class Inserter extends JComponent implements Runnable{
     }
     public void run(){
         while(true){
-            if(this.angle <= 180 && isHolding){
-                this.angle++;
+            if(this.item != null && this.angle == 0){
+                this.turnDirection = Math.random() < 0.5;
             }
-            if(this.angle == 180){}
         }
     }
 }

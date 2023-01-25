@@ -14,11 +14,11 @@ public class ScienceManager extends JComponent implements Runnable{
         packs.add(new SciencePack(204,235,1));
         packs.add(new SciencePack(219,235,2));
         
-        packs.add(new SciencePack(205,235,1));
-        packs.add(new SciencePack(219,235,2));
+        packs.add(new SciencePack(241,235,3));
+        packs.add(new SciencePack(256,235,4));
         
-        packs.add(new SciencePack(205,235,1));
-        packs.add(new SciencePack(219,235,2));
+        packs.add(new SciencePack(278,235,5));
+        packs.add(new SciencePack(293,235,6));
     }
     public void nextFrame(){
         repaint();
