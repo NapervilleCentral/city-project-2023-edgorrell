@@ -31,7 +31,8 @@ public class SciencePack extends JComponent implements Runnable{
         }
     }
     public void run(){
-        offset--;
-        offset %= 16;
+        if(offset != 0){
+            offset--;
+        }
     }
 }

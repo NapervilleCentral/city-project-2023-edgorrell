@@ -11,7 +11,7 @@ public class ScienceManager extends JComponent implements Runnable{
     
     public ScienceManager() throws IOException{
         packs = new ArrayList<SciencePack>();
-        packs.add(new SciencePack(205,235,1));
+        packs.add(new SciencePack(204,235,1));
         packs.add(new SciencePack(219,235,2));
         
         packs.add(new SciencePack(205,235,1));
