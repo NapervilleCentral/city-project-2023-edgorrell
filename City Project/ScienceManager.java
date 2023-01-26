@@ -20,14 +20,6 @@ public class ScienceManager extends JComponent implements Runnable{
         packs.add(new SciencePack(278,235,5));
         packs.add(new SciencePack(293,235,6));
     }
-    public void nextFrame(){
-        repaint();
-    }
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g;
-        draw(g2);
-    }
     public void draw (Graphics2D frame){ // actually draw stuff here
         for(SciencePack pack : packs){
             pack.draw(frame);

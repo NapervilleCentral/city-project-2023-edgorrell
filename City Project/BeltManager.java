@@ -21,14 +21,6 @@ public class BeltManager extends JComponent implements Runnable{
             belts.add(new Belt(xpos,374,false));
         }
     }
-    public void nextFrame(){
-        repaint();
-    }
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g;
-        draw(g2);
-    }
     public void draw (Graphics2D frame){ // actually draw stuff here
         for(Belt belt : belts){
             belt.draw(frame);

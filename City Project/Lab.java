@@ -27,14 +27,6 @@ public class Lab extends JComponent implements Runnable{
             }
         }
     }
-    public void nextFrame(){
-        repaint();
-    }
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g;
-        draw(g2);
-    }
     public void draw (Graphics2D frame){ // actually draw stuff here
         frame.drawImage(this.shadow,210,135,null);
         if(new ArrayList<>(Arrays.asList(this.timers)).contains(0)){

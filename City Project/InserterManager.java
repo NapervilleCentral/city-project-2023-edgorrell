@@ -10,7 +10,7 @@ public class InserterManager extends JComponent implements Runnable{
     Inserter i1, i2, i3;
     boolean first = true;
     
-    public InserterManager(){
+    public InserterManager() throws IOException{
         this.inserters = new ArrayList<Inserter>();
         this.i1 = new Inserter(167,165);
         this.i2 = new Inserter(205,165);
@@ -18,14 +18,6 @@ public class InserterManager extends JComponent implements Runnable{
         inserters.add(i1);
         inserters.add(i2);
         inserters.add(i3);
-    }
-    public void nextFrame(){
-        repaint();
-    }
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g;
-        draw(g2);
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
         for(int i = 0; i < 2; i++){
@@ -41,7 +33,7 @@ public class InserterManager extends JComponent implements Runnable{
                 i.run();
             }
             try{
-                Thread.sleep(17);
+                Thread.sleep(8);
             } catch(Exception e){}
         }
     }

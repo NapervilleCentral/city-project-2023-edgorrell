@@ -20,14 +20,6 @@ public class Belt extends JComponent{
         this.y = y;
         this.end = end;
     }
-    public void nextFrame(){
-        repaint();
-    }
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g;
-        draw(g2);
-    }
     public void draw (Graphics2D frame){ // actually draw stuff here
         if(this.end){
             frame.drawImage(this.sprite,x,y,x+33,y+7,16+64*BeltManager.tick,1129,49+64*BeltManager.tick,1135,null);

@@ -2,10 +2,6 @@
 comment0.target=Belt
 comment1.params=x\ y\ end
 comment1.target=Belt(int,\ int,\ boolean)
-comment2.params=
-comment2.target=void\ nextFrame()
-comment3.params=g
-comment3.target=void\ paintComponent(java.awt.Graphics)
-comment4.params=frame
-comment4.target=void\ draw(java.awt.Graphics2D)
-numComments=5
+comment2.params=frame
+comment2.target=void\ draw(java.awt.Graphics2D)
+numComments=3

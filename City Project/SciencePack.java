@@ -17,14 +17,7 @@ public class SciencePack extends JComponent implements Runnable{
         this.y = y;
         this.offset = 0;
     }
-    public void nextFrame(){
-        repaint();
-    }
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2 = (Graphics2D) g;
-        draw(g2);
-    }
+
     public void draw (Graphics2D frame){ // actually draw stuff here
         for(int i = 0; i < 22; i++){
             frame.drawImage(this.sprite,x,(12*i)+offset+y,null);
