@@ -6,7 +6,7 @@ import javax.imageio.*;
 import java.awt.image.*;
 
 public class InserterManager extends JComponent implements Runnable{
-    ArrayList<Inserter> inserters;
+    public static ArrayList<Inserter> inserters;
     Inserter i1, i2, i3;
     boolean first = true;
     
@@ -29,11 +29,11 @@ public class InserterManager extends JComponent implements Runnable{
     }
     public void run(){
         while(true){
-            for(Inserter i : inserters){
-                i.run();
-            }
             try{
-                Thread.sleep(8);
+                for(Inserter i : inserters){
+                    i.run();
+                }
+                Thread.sleep(6);
             } catch(Exception e){}
         }
     }

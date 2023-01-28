@@ -5,14 +5,16 @@ import javax.swing.*;
 import javax.imageio.*;
 import java.awt.image.*;
 
-public class Inserter extends JComponent implements Runnable{
+public class Inserter extends JComponent{
     BufferedImage base, armOpen, armClosed, item;
-    int x,y,angle;
-    boolean turnDirection;
+    int x,y,xOffset,yOffset;
+    int angle,id,wait;
 
     public Inserter(int x, int y) throws IOException{
         this.x = x;
         this.y = y;
+        this.wait = (int)(5000*Math.random());
+        this.angle = 180;
         this.base = ImageIO.read(new File("sprites/inserter/inserter-base.png"));
         this.armOpen = ImageIO.read(new File("sprites/inserter/inserter-hand-open.png"));
         this.armClosed = ImageIO.read(new File("sprites/inserter/inserter-hand-closed.png"));
@@ -46,15 +48,38 @@ public class Inserter extends JComponent implements Runnable{
             frame.drawImage(this.base,this.x+34,this.y+38,null);
             return;
         }
-        if(this.angle < 180){
+        if(this.item == null){
             frame.drawImage(rotate(this.armOpen,this.angle),this.x,this.y,null);
         } else {
             frame.drawImage(rotate(this.armClosed,this.angle),this.x,this.y,null);
+            this.xOffset = (int)(33*Math.cos(Math.toRadians(-this.angle+90)));
+            this.yOffset = (int)(33*Math.sin(Math.toRadians(-this.angle+90)));
+            frame.drawImage(this.item,this.x+44 + this.xOffset,this.y+40 - this.yOffset,null);
         }
-        frame.fillRect(74*(int)Math.cos(this.angle), 74*(int)Math.sin(this.angle)+this.y,10,10);
     }
     public void run(){
-        this.angle++;
-        this.angle %= 360;
+        if(this.wait != 0){
+            this.wait--;
+            return;
+        }
+        try{
+            if(this.angle == 179){
+                this.wait = (int)(100*Math.random());
+            }
+            if(this.angle == 180){
+                this.id = (int) Math.round(Math.random()) + 1;
+                this.id += 2*InserterManager.inserters.indexOf(this);
+                this.item = ImageIO.read(new File("sprites/science-packs/id-" + this.id + ".png"));
+                ScienceManager.update(this.id);
+            }
+            if(this.angle == 0){
+                this.item = null;
+            }
+            if(this.item == null){
+                this.angle++;
+            } else {
+                this.angle--;
+            }
+        } catch(Exception e){}
     }
 }

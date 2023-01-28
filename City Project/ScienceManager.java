@@ -6,7 +6,7 @@ import javax.imageio.*;
 import java.awt.image.*;
 
 public class ScienceManager extends JComponent implements Runnable{
-    ArrayList<SciencePack> packs;
+    static ArrayList<SciencePack> packs;
     BufferedImage img;
     
     public ScienceManager() throws IOException{
@@ -19,6 +19,9 @@ public class ScienceManager extends JComponent implements Runnable{
         
         packs.add(new SciencePack(278,235,5));
         packs.add(new SciencePack(293,235,6));
+    }
+    public static void update(int id){
+        packs.get(id-1).offset = 12;
     }
     public void draw (Graphics2D frame){ // actually draw stuff here
         for(SciencePack pack : packs){

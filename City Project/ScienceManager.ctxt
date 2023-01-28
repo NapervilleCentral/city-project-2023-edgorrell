@@ -2,8 +2,10 @@
 comment0.target=ScienceManager
 comment1.params=
 comment1.target=ScienceManager()
-comment2.params=frame
-comment2.target=void\ draw(java.awt.Graphics2D)
-comment3.params=
-comment3.target=void\ run()
-numComments=4
+comment2.params=id
+comment2.target=void\ update(int)
+comment3.params=frame
+comment3.target=void\ draw(java.awt.Graphics2D)
+comment4.params=
+comment4.target=void\ run()
+numComments=5
