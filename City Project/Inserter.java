@@ -13,7 +13,7 @@ public class Inserter extends JComponent{
     public Inserter(int x, int y) throws IOException{
         this.x = x;
         this.y = y;
-        this.wait = (int)(5000*Math.random());
+        this.wait = (int)(2000*Math.random());
         this.angle = 180;
         this.base = ImageIO.read(new File("sprites/inserter/inserter-base.png"));
         this.armOpen = ImageIO.read(new File("sprites/inserter/inserter-hand-open.png"));
