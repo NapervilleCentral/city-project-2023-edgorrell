@@ -29,10 +29,10 @@ public class InserterManager extends JComponent implements Runnable{
     }
     public void run(){
         while(true){
+            for(Inserter i : inserters){
+                i.run();
+            }
             try{
-                for(Inserter i : inserters){
-                    i.run();
-                }
                 Thread.sleep(6);
             } catch(Exception e){}
         }
