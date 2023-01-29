@@ -52,12 +52,15 @@ public class Inserter extends JComponent{
             frame.drawImage(rotate(this.armOpen,this.angle),this.x,this.y,null);
         } else {
             frame.drawImage(rotate(this.armClosed,this.angle),this.x,this.y,null);
-            this.xOffset = (int)(33*Math.cos(Math.toRadians(-this.angle+90)));
-            this.yOffset = (int)(33*Math.sin(Math.toRadians(-this.angle+90)));
+            this.xOffset = (int)(34*Math.cos(Math.toRadians(-this.angle+90)));
+            this.yOffset = (int)(34*Math.sin(Math.toRadians(-this.angle+90)));
             frame.drawImage(this.item,this.x+44 + this.xOffset,this.y+40 - this.yOffset,null);
         }
     }
     public void run(){
+        if(Lab.isDestroyed){
+            return;
+        }
         if(this.wait != 0){
             this.wait--;
             return;
